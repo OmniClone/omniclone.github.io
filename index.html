@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OmniClone: A Robust, All-Rounder Humanoid Teleoperation System</title>
+    <title>OmniClone: Engineering a Robust and Affordable Whole-Body Humanoid Teleoperation System</title>
     <!-- Use Tailwind CSS but overridden heavily by custom CSS variables -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Include Lucide icons for UI controls -->
@@ -122,8 +122,9 @@
                 <header class="pt-8 sm:pt-12 xl:pt-24 pb-12 sm:pb-16 px-4 max-w-6xl mx-auto text-center">
 
                     <h1
-                        class="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] xl:text-[64px] font-bold tracking-tight leading-[1.1] mb-6 sm:mb-8">
-                        OmniClone: A Robust, All-Rounder <br class="hidden sm:block">Humanoid Teleoperation System
+                        class="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] xl:text-[46px] font-bold tracking-tight leading-[1.3] mb-6 sm:mb-8">
+                        OmniClone: Engineering a Robust and Affordable <br class="hidden sm:block">
+                        <span class="inline-block mt-2 sm:mt-4">Whole-Body Humanoid Teleoperation System</span>
                     </h1>
 
                     <div
@@ -173,13 +174,13 @@
                         <button id="toggle-affiliations"
                             class="text-xs font-bold uppercase tracking-widest text-themeTextSoft hover:text-amber-600 transition-colors inline-flex items-center justify-center gap-1 mx-auto"
                             onclick="const content = document.getElementById('affiliations-content'); const text = document.getElementById('toggle-affiliations-text'); const icon = document.getElementById('toggle-affiliations-icon'); content.classList.toggle('hidden'); if(content.classList.contains('hidden')){ text.innerText = 'Show Affiliations'; icon.classList.remove('rotate-180'); icon.classList.add('rotate-0'); } else { text.innerText = 'Hide Affiliations'; icon.classList.remove('rotate-0'); icon.classList.add('rotate-180'); }">
-                            <span id="toggle-affiliations-text">Hide Affiliations</span>
+                            <span id="toggle-affiliations-text">Show Affiliations</span>
                             <i data-lucide="chevron-up" id="toggle-affiliations-icon"
-                                class="w-3.5 h-3.5 transition-transform duration-300 rotate-180"></i>
+                                class="w-3.5 h-3.5 transition-transform duration-300 rotate-0"></i>
                         </button>
                     </div>
 
-                    <div id="affiliations-content">
+                    <div id="affiliations-content" class="hidden">
                         <div
                             class="affiliations text-[12px] sm:text-[13px] text-themeTextSoft mb-8 space-y-2 max-w-4xl mx-auto px-2">
                             <p class="leading-relaxed">
@@ -232,19 +233,19 @@
                     </div>
 
                     <div class="flex flex-wrap justify-center gap-4 mt-8">
-                        <a href="https://OmniClone.github.io/" target="_blank" class="theme-btn text-sm">
+                        <a href="resources/OmniClone.pdf" target="_blank" class="theme-btn text-sm">
                             <i data-lucide="file-text" class="w-4 h-4"></i>
-                            Paper (Incoming)
+                            Paper
                         </a>
                         <a href="https://OmniClone.github.io/" target="_blank" class="theme-btn text-sm">
                             <i data-lucide="book-open" class="w-4 h-4"></i>
                             ArXiv (Incoming)
                         </a>
-                        <a href="https://OmniClone.github.io/" target="_blank" class="theme-btn text-sm">
+                        <a href="https://github.com/yixxuan-li/OmniClone" target="_blank" class="theme-btn text-sm">
                             <i data-lucide="github" class="w-4 h-4"></i>
-                            Project Website
+                            Code
                         </a>
-                        <a href="https://OmniClone.github.io/" target="_blank" class="theme-btn text-sm">
+                        <a href="https://github.com/yixxuan-li/Any2Humanoid" target="_blank" class="theme-btn text-sm">
                             <i data-lucide="github" class="w-4 h-4"></i>
                             Data Collection
                         </a>
@@ -643,6 +644,10 @@
                                     class="text-themeText font-bold hover:text-amber-700 transition"
                                     target="_blank">Sim2Anything</a>: Seamlessly transfer motion from simulation to real
                                 humanoid robots. Bridge the Sim-to-Real gap with a single parameter change.</li>
+                            <li class="pl-4 border-l-2 border-themeLine"><a href="https://github.com/YanjieZe/GMR"
+                                    class="text-themeText font-bold hover:text-amber-700 transition"
+                                    target="_blank">GMR</a>: Retarget human motions into diverse humanoid robots in real
+                                time on CPU.</li>
                             <li class="pl-4 border-l-2 border-themeLine"><a
                                     href="https://github.com/RavenLeeANU/Gen2Humanoid"
                                     class="text-themeText font-bold hover:text-amber-700 transition"
