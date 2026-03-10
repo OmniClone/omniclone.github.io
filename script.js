@@ -264,30 +264,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// --- Lazy Load Videos ---
-document.addEventListener('DOMContentLoaded', () => {
-    const lazyVideos = document.querySelectorAll('video[data-autoplay]');
-    if (lazyVideos.length > 0) {
-        const videoObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const playPromise = entry.target.play();
-                    if (playPromise !== undefined) {
-                        playPromise.catch(error => {
-                            console.warn("Auto-play was prevented", error);
-                        });
-                    }
-                } else {
-                    entry.target.pause();
-                }
-            });
-        }, {
-            rootMargin: '100px 0px', // start loading slightly before they come into view
-            threshold: 0.1
-        });
-
-        lazyVideos.forEach(video => {
-            videoObserver.observe(video);
-        });
+// --- Loading Screen Logic ---
+window.addEventListener('load', () => {
+    const loader = document.getElementById('loading-screen');
+    if (loader) {
+        // Fade out
+        loader.style.opacity = '0';
+        // Remove from DOM after transition
+        setTimeout(() => {
+            loader.style.display = 'none';
+        }, 500);
     }
 });
