@@ -550,7 +550,7 @@
                                         document.write(`
                                         <div class="carousel-item flex-shrink-0 w-auto max-w-[85vw] sm:max-w-none relative group flex flex-col items-center justify-center p-2 pt-3">
                                             <div class="custom-video-wrapper w-full rounded-[24px] overflow-hidden flex items-center justify-center flex-col shadow-sm">
-                                                <video id="${id}" class="carousel-vid max-w-[100%] max-h-[55vh] h-auto mx-auto" src="resources/video/${v.src}" loop muted playsinline preload="none" data-autoplay></video>
+                                                <video id="${id}" class="carousel-vid max-w-[100%] max-h-[55vh] h-auto mx-auto" src="resources/video/${v.src}" loop muted playsinline autoplay></video>
                                                 <div class="video-controls group/controls">
                                                     <button class="center-play opacity-0 group-hover/controls:opacity-100 transition-opacity p-3 sm:p-4 rounded-full backdrop-blur-md" data-target="${id}">
                                                         <i data-lucide="play" class="w-6 h-6 sm:w-8 sm:h-8 fill-current"></i>
@@ -578,7 +578,6 @@
                                     });
                                 </script>
                             </div>
-                        </div>
                     </section>
 
                     <!-- Benchmark Panel -->
@@ -586,12 +585,17 @@
                         <h2 class="text-3xl sm:text-4xl font-bold mb-8">Benchmark</h2>
                         <p class="text-themeTextSoft mb-10 text-lg">OmniBench: Systematic diagnostics and actionable
                             insights for humanoid whole-body teleoperation.</p>
-                        <div <div class="flex flex-col md:flex-row items-center justify-center gap-6 max-w-6xl mx-auto">
-                            <div class="flex-1 flex justify-center md:justify-end">
+                        <div
+                            class="flex flex-col md:flex-row items-center md:items-start justify-center gap-8 max-w-6xl mx-auto">
+                            <div class="flex flex-col items-center justify-start pr-0">
                                 <img src="resources/mpjpe_error.png" alt="MPJPE Error"
                                     class="h-[250px] sm:h-[300px] md:h-[350px] w-auto object-contain rounded-[16px] shadow-sm bg-white/60 p-4 border border-themeLine transition-transform hover:scale-[1.02]">
+                                <p
+                                    class="mt-4 text-[13px] sm:text-sm font-bold text-themeText font-['Space_Grotesk'] text-center max-w-[300px]">
+                                    Outer rim indicates lower tracking errors
+                                </p>
                             </div>
-                            <div class="flex-1 flex justify-center md:justify-start">
+                            <div class="flex justify-center items-start pl-0 -ml-4">
                                 <img src="resources/training_dataset_distribution.png"
                                     alt="Training Dataset Distribution"
                                     class="h-[250px] sm:h-[300px] md:h-[350px] w-auto object-contain rounded-[16px] shadow-sm bg-white/60 p-4 border border-themeLine transition-transform hover:scale-[1.02]">
