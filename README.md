@@ -1,0 +1,1 @@
+there should be a label called: "Whole-body Pick-and-Place". "Tabletop Pick-and-Place" for  autonomy_squat.mp4 and autonomy_8x.mp4

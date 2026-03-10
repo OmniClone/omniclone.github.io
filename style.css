@@ -1,0 +1,183 @@
+/* Custom properties matching extreme-humanoid theme */
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap");
+
+:root {
+    --bg: #f6efe0;
+    --bg-soft: #efe4cf;
+    --text: #2e2617;
+    --text-soft: #6f614b;
+    --line: rgba(122, 101, 68, 0.24);
+    --card: rgba(255, 250, 242, 0.9);
+    --cyan: #8ed7c7;
+    --lime: #88a95a;
+    --amber: #c58c3a;
+    --radius: 16px;
+    --shadow: 0 14px 36px rgba(88, 69, 39, 0.14);
+}
+
+body {
+    font-family: "Noto Sans SC", sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.6;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Background gradient styling */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at 50% -20%,
+            rgba(255, 255, 255, 0.8) 0%,
+            rgba(255, 255, 255, 0) 60%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.02em;
+}
+
+/* Custom UI Elements */
+.theme-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: 0 4px 12px rgba(88, 69, 39, 0.04);
+}
+
+.theme-btn {
+    background: var(--text);
+    color: var(--bg);
+    border-radius: 999px;
+    padding: 0.75rem 1.75rem;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.theme-btn:hover {
+    background: transparent;
+    color: var(--text);
+    border-color: var(--text);
+    transform: translateY(-2px);
+}
+
+/* Custom Video Wrapper Styles */
+.custom-video-wrapper {
+    position: relative;
+    user-select: none;
+    background: var(--card);
+    border: 1px solid var(--line);
+    box-shadow: 0 4px 12px rgba(88, 69, 39, 0.08);
+}
+
+.custom-video-wrapper video {
+    pointer-events: none;
+}
+
+/* Controls Overlay */
+.video-controls {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.custom-video-wrapper:hover .video-controls,
+.video-controls:focus-within {
+    pointer-events: auto;
+}
+
+.center-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: auto;
+    background: rgba(255, 250, 242, 0.8) !important;
+    color: var(--text) !important;
+    box-shadow: 0 4px 12px rgba(88, 69, 39, 0.1);
+    border: 1px solid var(--line);
+}
+
+.center-play:hover {
+    background: var(--text) !important;
+    color: var(--bg) !important;
+}
+
+.video-floating-bar {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--line);
+    border-radius: 9999px;
+    box-shadow: 0 4px 16px rgba(88, 69, 39, 0.12);
+    color: var(--text);
+    pointer-events: auto;
+    z-index: 20;
+}
+
+/* Hide scrollbar for carousel but keep functionality */
+.carousel-container {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 1%, black 99%, transparent);
+}
+
+.carousel-container::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-track {
+    scroll-behavior: smooth;
+    will-change: transform;
+}
+
+.carousel-container.active .carousel-track {
+    scroll-behavior: auto;
+}
+
+.carousel-btn {
+    background: var(--card);
+    color: var(--text);
+    border: 1px solid var(--line);
+    box-shadow: 0 4px 12px rgba(88, 69, 39, 0.08);
+}
+
+/* Panel Animations */
+.panel {
+    animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
