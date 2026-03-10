@@ -128,6 +128,11 @@ document.addEventListener('DOMContentLoaded', () => {
         let scrollLeft;
 
         // Mouse Events
+        carousel.addEventListener('contextmenu', (e) => {
+            // Prevent context menu to allow seamless right-click dragging
+            e.preventDefault();
+        });
+
         carousel.addEventListener('mousedown', (e) => {
             // Prevent drag if clicking controls
             if (e.target.closest('button') || e.target.closest('select')) return;
@@ -179,6 +184,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 carousel.scrollLeft = scrollLeft - walk;
             }
         }, { passive: true });
+
+        // Wheel Events for Trackpad / Mouse Wheel
+        carousel.addEventListener('wheel', (e) => {
+            // Only scroll the carousel horizontally if the horizontal scroll magnitude is greater than the vertical one
+            if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+                e.preventDefault();
+                carousel.scrollLeft += e.deltaX;
+            }
+        }, { passive: false });
 
     });
 
